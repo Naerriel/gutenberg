@@ -146,6 +146,9 @@ export default compose( [
 		const { getBlock } = select( 'core/editor' );
 		const { getBlockStyles } = select( 'core/blocks' );
 		const block = getBlock( clientId );
+		if ( ! block ) {
+			return {};
+		}
 		const blockType = getBlockType( block.name );
 
 		return {
